@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    int my_rank, n, count = 1000;
+    int my_rank, n, count = 10000;
     double start, end, total_time;
     MPI_Status status;
 

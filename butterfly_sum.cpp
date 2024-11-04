@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     // Butterfly pattern for global sum
     for (mask = 1; mask < comm_sz; mask <<= 1) {
         partner = my_rank ^ mask;
+        printf("partner val is %i\n",partner);
         if (partner < comm_sz) {
             MPI_Sendrecv(&local_value, 1, MPI_INT, partner, 0,
                          &received_value, 1, MPI_INT, partner, 0,

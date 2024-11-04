@@ -20,10 +20,8 @@ int main(int argc, char* argv[]) {
     // Broadcast the number of tosses to all processes
     MPI_Bcast(&number_of_tosses, 1, MPI_LONG_LONG_INT, 0, MPI_COMM_WORLD);
 
-    // Calculate number of tosses per process
     long long int local_tosses = number_of_tosses / comm_sz;
 
-    // Each process performs its tosses
     for (toss = 0; toss < local_tosses; toss++) {
         x = (double)rand() / RAND_MAX * 2 - 1;
         y = (double)rand() / RAND_MAX * 2 - 1;
